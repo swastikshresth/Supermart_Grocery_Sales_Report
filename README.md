@@ -12,7 +12,7 @@
 
 2. -----------Transform:-------------------------
 * Data Cleaning
-   1. Check duplicate values and drop it if duplicates are found.
+ **  1. Check duplicate values and drop it if duplicates are found.**
     * I am mentioning the queries which I have used in this project.
       
     - QUERIES for Duplicate values (Unique order_id and all the rest columnn)
@@ -30,7 +30,7 @@
                                 FROM supermart_grocery_sales_details
                                 GROUP BY Customer_Name, Category, Sub_category, City, Order_Date, Region, Sales, Discount, Profit, State
                                );
-  2. Check NULL or Missing values
+**  2. Check NULL or Missing values**
      - QUERIES for finding NULL or Missing values
         select *,count(*) as null_count from supermart_grocery_sales_details 
          where Order_Id is null
@@ -45,16 +45,16 @@
          or Profit is null
          or State is null
        
-  3. Check for invalid or future date
+ ** 3. Check for invalid or future date**
      - Queries for finding Invalid or future date
             select Order_Date, count(*)as Invalid_Date
             from supermart_grocery_sales_details where Order_Date > curDate();
-  4. Check for outliers or unusual values
+ ** 4. Check for outliers or unusual values**
      - Queries for outliers or unusual values
             select *, count(*)as Invalid_values
             from supermart_grocery_sales_details where sales<0 or profit<0;
   
-* Data Enrichment
+*** Data Enrichment**
 - After cleaning connect SQL Database to Power BI for advanced analytics
 - Create new calculated columns by using DAX Queries in PowerBI based on business login and domain understanding
 
